@@ -1,0 +1,27 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.6.3/schema.json",
+  "files": {
+    "ignore": [".next/**", "migration/**", "node_modules/**", "ui/**"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useConsistentArrayType": "off",
+        "useExportType": "warn",
+        "useImportType": "warn"
+      },
+      "suspicious": {
+        "useAwait": "off"
+      }
+    }
+  }
+}

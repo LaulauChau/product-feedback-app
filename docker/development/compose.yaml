@@ -1,0 +1,56 @@
+name: "product-feedback-app"
+
+services:
+  app:
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    container_name: app
+    depends_on:
+      database:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ../../
+          target: /usr/src/app
+          ignore:
+            - .git
+            - node_modules/
+
+        - action: rebuild
+          path: ../../package.json
+    networks:
+      - app-network
+    platform: linux/amd64
+    ports:
+      - "3000:3000"
+
+  database:
+    image: postgres:16-alpine
+    container_name: database
+    environment:
+      - POSTGRES_DB=product_feedback_app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      timeout: 5s
+    networks:
+      - app-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../../src/infrastructure/database/migrations:/docker-entrypoint-initdb.d
+
+networks:
+  app-network:
+    driver: bridge
+    name: app-network
+
+volumes:
+  postgres_data:
+    name: postgres_data

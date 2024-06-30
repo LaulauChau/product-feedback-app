@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    --blue-50: 231 100% 97%;
+    --blue-100: 230 60% 98%;
+    --blue-600: 230 76% 59%;
+
+    --blue-gray-500: 224 20% 49%;
+    --blue-gray-700: 231 33% 34%;
+    --blue-gray-800: 230 31% 31%;
+
+    --light-blue-400: 204 94% 68%;
+
+    --orange-300: 14 83% 74%;
+
+    --purple-600: 282 83% 52%;
+
+    --white: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #__next {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 35px;
+    letter-spacing: -0.33px;
+  }
+
+  .heading-2 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    letter-spacing: -0.25px;
+  }
+
+  .heading-3 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+    letter-spacing: -0.25px;
+  }
+
+  .heading-4 {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  .body-1 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 23px;
+  }
+
+  .body-2 {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 22px;
+  }
+
+  .body-3 {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19px;
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "product-feedback-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "commit": "git-cz",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "dev": "next dev",
+    "lint": "pnpm dlx @biomejs/biome check --write . && rustywind --write .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then husky; fi",
+    "start": "cp -r \"./public\" \".next/standalone/public\" && cp -r \".next/static\" \".next/standalone/.next/static\" && node .next/standalone/server.js",
+    "test": "dotenv -e .env -- vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
+    "@lucia-auth/adapter-drizzle": "^1.0.7",
+    "@node-rs/argon2": "^1.8.3",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.31.2",
+    "lucia": "^3.2.0",
+    "lucide-react": "^0.399.0",
+    "next": "14.2.4",
+    "postgres": "^3.4.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.0",
+    "sanitize-html": "^2.13.0",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8",
+    "zsa": "^0.5.0",
+    "zsa-react": "^0.2.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.2.0",
+    "@commitlint/types": "^19.0.3",
+    "@testcontainers/postgresql": "^10.10.0",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/sanitize-html": "^2.11.0",
+    "commitizen": "^4.3.0",
+    "dotenv-cli": "^7.4.2",
+    "drizzle-kit": "^0.22.8",
+    "husky": "^9.0.11",
+    "inquirer": "^9.3.1",
+    "lint-staged": "^15.2.7",
+    "postcss": "^8.4.38",
+    "rustywind": "^0.22.0",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "bun": "please-use-pnpm",
+    "node": ">=20.15.0",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=9.4.0",
+    "yarn": "please-use-pnpm"
+  }
+}
