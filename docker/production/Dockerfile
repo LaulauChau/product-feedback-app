@@ -1,6 +1,6 @@
 ARG NODE_VERSION=20.15.0
 
-FROM --platform=linux/amd64 node:${NODE_VERSION}-alpine AS base
+FROM node:${NODE_VERSION}-alpine AS base
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PNPM_HOME="/pnpm"
