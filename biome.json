@@ -1,7 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.6.3/schema.json",
   "files": {
-    "ignore": [".next/**", "migration/**", "node_modules/**", "ui/**"]
+    "ignore": [".next/**", "migration/**", "node_modules/**"]
   },
   "formatter": {
     "enabled": true,
