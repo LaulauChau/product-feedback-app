@@ -43,6 +43,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
       - name: Verify deployment
         run: |
           minikube kubectl -- get pods
