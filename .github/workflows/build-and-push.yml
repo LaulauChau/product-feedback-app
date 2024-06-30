@@ -34,5 +34,17 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Deploy to Render
+        env:
+          render_api_key: ${{ secrets.RENDER_API_KEY }}
+          render_service_id: ${{ secrets.RENDER_SERVICE_ID }}
+        run: |
+          curl -X POST "https://api.render.com/v1/services/$render_service_id/deploys" \
+            -H "Authorization: Bearer $render_api_key" \
+            -H "Content-Type: application/json" \
+            -d '{"imageTag": "${{ github.sha }}"}'
+
+      - name: Verify Deployment
+        run: |
+          echo "Deployment triggered for image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          echo "Check your Render dashboard for deployment status"
