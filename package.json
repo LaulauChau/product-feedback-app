@@ -14,7 +14,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then husky; fi",
     "start": "cp -r \"./public\" \".next/standalone/public\" && cp -r \".next/static\" \".next/standalone/.next/static\" && node .next/standalone/server.js",
-    "test": "dotenv -e .env -- vitest run --passWithNoTests"
+    "test": "SKIP_ENV_VALIDATION=true vitest run --passWithNoTests"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
