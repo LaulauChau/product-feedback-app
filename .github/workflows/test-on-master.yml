@@ -22,7 +22,6 @@ jobs:
       - name: Load .env file
         uses: falti/dotenv-action@v1
         with:
-          path: ./.env
           log-variables: true
 
       - name: Install pnpm
